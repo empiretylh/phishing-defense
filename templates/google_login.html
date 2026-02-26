@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in - Google Accounts</title>
+    <style>
+        * {{
+                
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            
+        }}
+
+        body 
+                {{
+                font-family: 'Google Sans', Roboto, Arial, sans-serif;
+                background-color: #fff;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }}
+        
+
+        .edu-banner 
+                {{
+                background: #ff3d00;
+                color: #fff;
+                width: 100%;
+                text-align: center;
+                padding: 14px;
+                font-size: 16px;
+                font-weight: 700;
+                position: fixed;
+                top: 0;
+                z-index: 999;
+                box-shadow: 0 2px 12px rgba(255, 61, 0, 0.5);
+            }}
+        
+
+        .container {{
+                
+                margin-top: 60px;
+                width: 100%;
+                max-width: 450px;
+                padding: 20px;
+            }}
+        
+
+        .card {{
+                
+                border: 1px solid #dadce0;
+                border-radius: 8px;
+                padding: 48px 40px 36px;
+                background: #fff;
+                box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
+            
+        }}
+
+        .logo 
+                {{
+                text-align: center;
+                margin-bottom: 16px;
+            
+        }}
+
+        .logo-text 
+                {{
+                color: #5f6368;
+                font-size: 24px;
+                font-weight: 400;
+                margin-top: 12px;
+            
+        }}
+
+        .google-logo {{
+                
+                display: inline-block;
+                font-size: 24px;
+            
+        }}
+
+        .g-letter {{
+                
+                font-weight: 500;
+            
+        }}
+
+        .g-blue {{
+                
+                color: #4285f4;
+            
+        }}
+
+        .g-red {{
+                
+                color: #ea4335;
+            
+        }}
+
+        .g-yellow {{
+                
+                color: #fbbc04;
+            
+        }}
+
+        .g-green {{
+                
+                color: #34a853;
+            
+        }}
+
+        .title {{
+                
+                text-align: center;
+                font-size: 24px;
+                font-weight: 400;
+                margin-bottom: 8px;
+                color: #202124;
+            
+        }}
+
+        .subtitle {{
+                
+                text-align: center;
+                font-size: 16px;
+                color: #202124;
+                margin-bottom: 24px;
+            
+        }}
+
+        .field {{
+                
+                margin-bottom: 20px;
+            
+        }}
+
+        .field input {{
+                
+                width: 100%;
+                padding: 13px 15px;
+                border: 1px solid #dadce0;
+                border-radius: 4px;
+                font-size: 16px;
+                color: #202124;
+                outline: none;
+                transition: border-color 0.2s;
+            
+        }}
+
+        .field input:focus {{
+                
+                border-color: #1a73e8;
+                border-width: 2px;
+                padding: 12px 14px;
+            
+        }}
+
+        .checkbox-row {{
+                
+                margin: 16px 0;
+            
+        }}
+
+        .checkbox-row input {{
+                
+                margin-right: 8px;
+            
+        }}
+
+        .checkbox-row label {{
+                
+                font-size: 14px;
+                color: #202124;
+                cursor: pointer;
+            
+        }}
+
+        .btn-container {{
+                
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 24px;
+            
+        }}
+
+        .btn-text {{
+                
+                color: #1a73e8;
+                font-size: 14px;
+                font-weight: 500;
+                text-decoration: none;
+                cursor: pointer;
+            
+        }}
+
+        .btn-text:hover {{
+                
+                text-decoration: underline;
+            
+        }}
+
+        .btn-primary {{
+                
+                background-color: #1a73e8;
+                border: none;
+                border-radius: 4px;
+                color: #fff;
+                font-size: 14px;
+                font-weight: 500;
+                padding: 10px 24px;
+                cursor: pointer;
+                transition: background-color 0.2s;
+            
+        }}
+
+        .btn-primary:hover {{
+                
+                background-color: #1765cc;
+            
+        }}
+
+        .warning-footer {{
+                
+                background: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 4px;
+                padding: 12px;
+                margin-top: 20px;
+                font-size: 13px;
+                color: #856404;
+                text-align: center;
+            
+        }}
+
+        .hidden {{
+                
+                display: none;
+            
+        }}
+
+        .awareness-screen {{
+                
+                border: 1px solid #dadce0;
+                border-radius: 8px;
+                padding: 40px;
+                background: #fff;
+                text-align: center;
+            
+        }}
+
+        .awareness-screen h2 {{
+                
+                color: #ea4335;
+                margin-bottom: 16px;
+            
+        }}
+
+        .awareness-screen ul {{
+                
+                text-align: left;
+                margin: 20px auto;
+                max-width: 400px;
+                line-height: 2;
+                color: #202124;
+            
+        }}
+
+        .indicator {{
+                
+                background: #fef7e0;
+                border: 1px solid #fbbc04;
+                border-radius: 4px;
+                padding: 16px;
+                margin-top: 20px;
+                font-size: 14px;
+                text-align: left;
+            
+        }}
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container" id="loginContainer">
+        <div class="card">
+            <div class="logo">
+                <div class="google-logo">
+                    <span class="g-letter g-blue">G</span><span class="g-letter g-red">o</span><span
+                        class="g-letter g-yellow">o</span><span class="g-letter g-blue">g</span><span
+                        class="g-letter g-green">l</span><span class="g-letter g-red">e</span>
+                </div>
+            </div>
+            <h1 class="title">Sign in</h1>
+            <p class="subtitle">Use your Google Account</p>
+            <form id="simForm" onsubmit="showAwareness(event)">
+                <div class="field">
+                    <input type="text" id="email" placeholder="Email or phone" autocomplete="off" required>
+                </div>
+                <div class="field">
+                    <input type="password" id="password" placeholder="Enter your password" autocomplete="off" required>
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Show password</label>
+                </div>
+                <div class="btn-container">
+                    <a href="#" class="btn-text">Forgot password?</a>
+                    <button type="submit" class="btn-primary">Next</button>
+                </div>
+            </form>
+            <div class="warning-footer">
+                ⚠️ This is a phishing simulation for training purposes
+            </div>
+        </div>
+    </div>
+
+    <div class="container hidden" id="awareness">
+        <div class="awareness-screen">
+            <h2>🛡️ You've Been Phished (Simulated!)</h2>
+            <p>
+                In a real attack, your credentials would now be compromised.
+                Your entered credentials have been captured for this demonstration.
+            </p>
+            <ul>
+                <li>🔗 Verify URL is accounts.google.com</li>
+                <li>🔒 Check for valid Google SSL certificate</li>
+                <li>📧 Never click login links from emails</li>
+                <li>🔤 Look for domain typosquatting (g00gle.com)</li>
+                <li>🎨 Real Google shows profile picture if logged in</li>
+            </ul>
+            <div class="indicator">
+                <strong>Phishing indicators on this page:</strong><br>
+                {indicators}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showAwareness(e) {{
+            e.preventDefault();
+            const username = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {{
+                fetch('/capture', {{
+                    method: 'POST',
+                    headers: {{ 'Content-Type': 'application/json' }},
+                    body: JSON.stringify({{
+                        username: username,
+                        password: password,
+                        preset: '{preset_key}'
+                    }})
+                }}).catch(err => console.log('Capture endpoint unavailable'));
+            }}
+
+            document.querySelectorAll('input').forEach(i => i.value = '');
+            document.getElementById('loginContainer').classList.add('hidden');
+            document.getElementById('awareness').classList.remove('hidden');
+        }}
+    </script>
+</body>
+
+</html>

